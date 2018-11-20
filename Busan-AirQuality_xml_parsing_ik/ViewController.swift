@@ -32,7 +32,7 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDelegate, 
     @objc func myParse() {
         let skey = "dH7oyxOq53N%2B%2FRde8Bv2BfStdElt4%2BYo8Y2uv0qcVTAEE2JZi3fsxzkkncorSPsCWBb%2Fp4m4l2T6c80hxRzbrA%3D%3D"
         
-        let strURL = "http://opendata.busan.go.kr/openapi/service/PublicToilet/getToiletInfoDetail?ServiceKey=\(skey)"
+        let strURL = "http://opendata.busan.go.kr/openapi/service/PublicToilet/getToiletInfoList?ServiceKey=\(skey)&numOfRows=100"
         
         if URL(string: strURL) != nil {
             
@@ -41,7 +41,12 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDelegate, 
                 
                 if myParser.parse(){
                     print("파싱 성공")
-                    
+                    for i in 0..<items.count {
+                        
+                        
+                        
+                        print("\(items[i].tInstName) : \(items[i].tToiletName)  \(items[i].tType)")
+                    }
                 } else {
                     print("파싱 실패")
                 }

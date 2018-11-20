@@ -16,4 +16,6 @@ class PublicToiletData {
     var tTel = ""
     var tToiletName = ""
     var tType = ""
+    
+    
 }
